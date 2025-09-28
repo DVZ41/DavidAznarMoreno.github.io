@@ -1,0 +1,22 @@
+{
+  "name": "David y Laura - Boda 2026",
+  "short_name": "Boda D&L",
+  "description": "Invitación digital para la boda de David y Laura - 11 de Julio 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#A0826D",
+  "background_color": "#E8D5C5",
+  "icons": [
+    {
+      "src": "wedding.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "wedding.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

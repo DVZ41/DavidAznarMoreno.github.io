@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David y Laura - Boda 11 Julio 2026</title>
+  
+  <!-- Performance optimizations -->
+  <meta name="theme-color" content="#A0826D">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="portada.jpg" as="image" type="image/jpeg">
+  <link rel="preload" href="hero.jpg" as="image" type="image/jpeg">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  
+  <!-- Optimized font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Great+Vibes&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Great+Vibes&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- iOS specific -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="David y Laura">
+  <link rel="apple-touch-icon" href="wedding.png">
+  
+  <!-- DNS prefetch para recursos externos -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//www.google.com">
+  <link rel="dns-prefetch" href="//docs.google.com">
+</head>
+<body>
+
+  <!-- Pantalla de acceso -->
+  <div class="overlay" id="overlay">
+    <img src="portada.jpg" alt="Invitación" class="overlay-img">
+    <h2>David y Laura</h2>
+    <div class="button-container">
+      <img id="btnAcceder" src="wedding.gif" alt="Acceder a la invitación" class="btn-gif" style="cursor: pointer; width: 80px; height: 80px; object-fit: contain; padding: 6px; transition: all 0.3s ease; border-radius: 12px;">
+    </div>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="Musicadefondo.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Contenido principal -->
+  <div id="contenido" class="oculto">
+    <!-- Cabecera -->
+    <header class="header">
+      <div class="header-content">
+        <h1>David & Laura</h1>
+        <div class="wedding-hashtag">#DavidYLaura2026</div>
+      </div>
+      <button id="musicToggle" class="music-btn" title="Pausar/Reproducir música">
+        <span id="musicIcon">🎵</span>
+      </button>
+    </header>
+    
+    <!-- Hero -->
+    <section class="hero fade" id="hero">
+      <h1 id="texto-hero" class="hero-typewriter"></h1>
+      <img src="hero.jpg" alt="David y Laura" class="hero-img">
+    </section>
+
+    <!-- Fecha -->
+    <section class="fecha fade" id="fecha">
+      <div class="fecha-container">
+        <div class="fecha-detalle">
+          <img src="calendar.gif" alt="Calendario animado" class="fecha-icon" loading="lazy">
+          <div class="fecha-contenido">
+            <h2>11 de Julio de 2026</h2>
+            <p class="fecha-texto"></p>
+            <div class="countdown" id="countdown">
+              <div class="countdown-item">
+                <span class="countdown-number" id="days">0</span>
+                <span class="countdown-label">Días</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="hours">0</span>
+                <span class="countdown-label">Horas</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="minutes">0</span>
+                <span class="countdown-label">Minutos</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-number" id="seconds">0</span>
+                <span class="countdown-label">Segundos</span>
+              </div>
+            </div>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+David+y+Laura&dates=20260711T201500/20260712T080000&location=Palacio+de+la+Carlota&details=Ceremonia+y+celebracion+de+la+boda+de+David+y+Laura" target="_blank" class="btn">Añadir al calendario</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner Animado -->
+    <section class="banner-animado">
+      <div class="texto-deslizante" id="texto-banner">
+      </div>
+    </section>
+
+    <!-- Ceremonia y Celebración -->
+    <section class="evento-info fade" id="evento">
+      <div class="evento-container">
+        <div class="evento-detalle">
+          <img src="location.gif" alt="Ubicación" class="icono-evento" loading="lazy">
+          <div class="evento-texto">
+            <h2>CEREMONIA Y CELEBRACIÓN</h2>
+            <img src="programa.gif" alt="Programa del día" class="programa-gif" loading="lazy">
+            <p><strong>Palacio de la Carlota</strong><br>
+            C. Ing. Alfonso de Churruca, 1<br>
+            14100 La Carlota, Córdoba<br>
+           </p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Palacio+de+la+Carlota%2C+C.+Ing.+Alfonso+de+Churruca%2C+1%2C+14100+La+Carlota%2C+C%C3%B3rdoba" target="_blank" class="btn">Cómo llegar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="galeria fade" id="galeria">
+      <p>CADA DIA JUNTOS ES UN REGALO Y ESTAMOS DESEANDO COMPARTIR CON VOSOTROS NUESTROS MEJORES MOMENTOS</p>
+      <div class="fotos">
+        <img data-src="foto1.jpg" alt="Playa de Los Belones (El Mar Menor)" onclick="openModal(this)" class="lazy-image" loading="lazy">
+        <img data-src="foto2.jpg" alt="Batería de Cala Cortina (Cartagena)" onclick="openModal(this)" class="lazy-image" loading="lazy">
+        <img data-src="foto3.jpg" alt="Paseo marítimo de Benalmádena" onclick="openModal(this)" class="lazy-image" loading="lazy">
+        <img data-src="foto4.jpeg" alt="Bodorrio" onclick="openModal(this)" class="lazy-image" loading="lazy">
+      </div>
+      
+      <!-- Video section -->
+      <div class="video-section">
+        <div class="video-thumbnail" onclick="openVideoModal()">
+          <video id="galleryVideo" preload="none" muted poster="miniaturavideo.png" loading="lazy">
+            <source src="videoinvitacion.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento video.
+          </video>
+          <div class="video-play-overlay">
+            <img src="youtube.png" alt="Reproducir video" class="video-play-button">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para ver imágenes y video en grande -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <button class="modal-arrow modal-prev" onclick="previousImage()" id="prevArrow">‹</button>
+        <img id="modalImage" src="#" alt="Imagen ampliada" style="display: none;">
+        <video id="modalVideo" controls style="display: none;" onclick="event.stopPropagation()">
+          <source src="" type="video/mp4">
+          Tu navegador no soporta el elemento video.
+        </video>
+        <button class="modal-arrow modal-next" onclick="nextImage()" id="nextArrow">›</button>
+        <div class="modal-caption" id="modalCaption"></div>
+      </div>
+    </div>
+
+    <!-- Confirmar asistencia -->
+    <section class="asistencia-info fade" id="asistencia">
+      <div class="asistencia-container">
+        <div class="asistencia-detalle">
+          <img src="confirmation.gif" alt="Confirmación" class="icono-asistencia" loading="lazy">
+          <div class="asistencia-texto">
+            <h2>CONFIRMAR ASISTENCIA</h2>
+            <p>¡Confirma tu asistencia lo antes posible y comparte este momento tan especial con nosotros!</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMiD0T4BRnXCAKaRnWzShtA7eKI_Hn4NHEq-lL0FZleLtesQ/viewform?usp=sharing&ouid=106318057302464141042" target="_blank" class="btn">Confirmar asistencia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer class="footer fade" id="footer">
+      
+      <p id="texto-footer"></p>
+      
+      <!-- Enlaces sociales -->
+      <div class="social-links">
+        <div class="hashtag-footer">#DavidYLaura2026</div>
+        <div class="social-icons">
+          <a href="#" class="social-link" title="Compartir en WhatsApp" onclick="shareOnWhatsApp()">
+            <span class="social-emoji">📱</span>
+          </a>
+          <a href="#" class="social-link" title="Compartir en Facebook" onclick="shareOnFacebook()">
+            <span class="social-emoji">📘</span>
+          </a>
+          <a href="#" class="social-link" title="Compartir en Twitter" onclick="shareOnTwitter()">
+            <span class="social-emoji">🐦</span>
+          </a>
+          <a href="#" class="social-link" title="Seguir en Instagram" onclick="shareOnInstagram()">
+            <span class="social-emoji">📷</span>
+          </a>
+        </div>
+      </div>
+      
+      <p class="footer-email">&copy; <a href="mailto:davznarestudiografico@gmail.com">davznarestudiografico@gmail.com</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
